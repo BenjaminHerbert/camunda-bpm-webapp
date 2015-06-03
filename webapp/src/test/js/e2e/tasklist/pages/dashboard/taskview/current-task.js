@@ -52,7 +52,11 @@ module.exports = Page.extend({
   },
 
   claimedUserName: function() {
-    return element(by.css('.task-card .assignee')).getText();
+    return element(by.css('.task-card .assignee .ng-binding')).getText();
+  },
+
+  isTaskClaimed: function() {
+    return element(by.css('.task-card .assignee[ng-if="task.assignee"]')).isPresent();
   },
 
   editClaimedUser: function(userName) {

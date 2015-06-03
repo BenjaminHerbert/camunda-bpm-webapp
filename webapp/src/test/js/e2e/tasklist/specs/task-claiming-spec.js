@@ -27,6 +27,7 @@ describe('Task Claiming Spec', function() {
     dashboardPage.currentTask.claim();
 
     // then
+    expect(dashboardPage.currentTask.isTaskClaimed()).to.eventually.be.true;
     expect(dashboardPage.currentTask.claimedUserName()).to.eventually.eql('Steve Hentschi');
   });
 
@@ -52,7 +53,7 @@ describe('Task Claiming Spec', function() {
     dashboardPage.currentTask.unclaim();
 
     // then
-    expect(dashboardPage.currentTask.claimedUserName()).to.eventually.eql('Claim');
+    expect(dashboardPage.currentTask.isTaskClaimed()).to.eventually.be.false;
   });
 
 
